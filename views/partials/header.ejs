@@ -10,11 +10,13 @@
     </head>
     <body>
         <nav>
-            <img src="/images/camera.svg">
-            <a href="/performers/new"	<%- title === 'Add Performer' ? 'class="active"' : '' %>>
-                ADD PERFORMER</a>
-                <a href="/movies/new" <%- title === 'Add Movie' ? 'class="active"' : '' %>>ADD MOVIE</a>
-                <a href="/movies" <%- title === 'All Movies' ? 'class="active"' : '' %>>ALL MOVIES</a>
+            <li>
+                <% if (user) { %>
+                <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+                <% } else { %>
+                <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+                <% } %>
+              </li>
             </nav>
             <main>
                 <h1><%= title %></h1>

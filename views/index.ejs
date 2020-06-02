@@ -1,20 +1,17 @@
 <%- include('./partials/header') %>
 <table id="list">
   <thead>
-    <tr>
-      <th>Title</th>
-      <th>Release<br />Year</th>
-      <th></th>
-    </tr>
+    <tr></tr>
   </thead>
   <tbody>
-    <li>
-      <% if (user) { %>
-      <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
-      <% } else { %>
-      <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
-      <% } %>
-    </li>
+    <tr>
+      <td>
+        Welcome to What to pack Main page. This page will take you two places.
+        To your Trips Page or to your Inventory Page.
+      </td>
+        
+        <a href="/items">Inventory Page</a>
+        <a href="/trips">Trip Page</a>
+    </tr>
   </tbody>
 </table>
-
