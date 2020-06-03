@@ -8,7 +8,7 @@ const itemSchema = new mongoose.Schema({
   category: String,
   user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User"
+      ref: 'User'
   }
 }, {
   timestamps: true

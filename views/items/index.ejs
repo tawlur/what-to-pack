@@ -22,10 +22,31 @@
         <option value="Morale">Morale</option>
       </select>
       <label>In Posession:</label>
-      <input type="checkbox" name="nowShowing" checked>
+      <input type="checkbox" name="In Posession" checked>
       <input type="submit" value="Add Item">
     </form>
 
     </tbody>
   </table>
-  
+  cd
+  <table>
+    <thead>
+
+      <th>Name</th>
+      <th>category</th>
+      <th>weight</th>
+    </thead>
+      <tbody>
+
+        <% items.forEach(function(i) { %>
+          <td><%= i.name %> </td>
+          <td><%= i.category %> </td>
+          <td><%= i.weight %> </td>
+          
+        </tbody>
+
+      
+      <%  }); %>
+    </table>
+
+

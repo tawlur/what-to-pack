@@ -1,7 +1,10 @@
 const Trip = require("../models/trip");
+const Item = require("../models/item");
 
 module.exports = {
   trip,
+  getNewTrip,
+  createTrip
 
 };
 
@@ -26,4 +29,22 @@ function trip(req, res, next) {
         user: req.user,
       });
     });
+}
+
+function getNewTrip(req, res) {
+  Item.find({}, function (err, items) {
+    res.render('trips/new', {
+      title: 'Add Trip',
+      items
+    });
+  })
+} 
+
+function createTrip(req, res) {
+  req.body.user = req.user;
+  Trip.create(req.body, function (err, newTrip) {
+    console.log(err);
+    console.log(newTrip);
+    res.redirect('/trips');
+  });
 }
