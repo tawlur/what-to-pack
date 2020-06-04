@@ -25,6 +25,10 @@
       <input type="checkbox" name="In Posession" checked>
       <input type="submit" value="Add Item">
     </form>
+    <form action="/authors/<%= eachAuthor._id %>?_method=DELETE" method="POST" style="display:inline;">
+      <input type="submit" value="DELETE">
+  </form>
+    
 
     </tbody>
   </table>

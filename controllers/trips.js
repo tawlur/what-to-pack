@@ -9,13 +9,16 @@ module.exports = {
 };
 
 function trip(req, res, next) {
+  //req.query = ?query=
   console.log(req.query);
   // Make the query object to use with Student.find based up
   // the user has submitted the search form or now
+  // www.url.com/?name=  (questions signals theres a query then name of query then value comes after the =)
   let modelQuery = req.query.name
     ? { name: new RegExp(req.query.name, "i") }
     : {};
   // Default to sorting by name
+  // ?sort= (shows up in url)
   let sortKey = req.query.sort || "name";
   Trip.find(modelQuery)
     .sort(sortKey)
