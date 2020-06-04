@@ -4,6 +4,7 @@ module.exports = {
   new: newItem,
   create,
   index,
+  deleteOneItem,
   
 }
 
@@ -32,10 +33,9 @@ function index(req, res) {
 }
 
 // Define deleteOneAuthor (our delete/destroy route)
-function deleteItem(req, res) {
-  Author.findByIdAndRemove(req.params.authorIdToDelete, function(err, deleteAuthorConfirmation) {
-      Book.deleteMany({author: req.params.authorIdToDelete}, function(err) {
-          res.redirect('/authors');
+function deleteOneItem(req, res) {
+  Item.findByIdAndRemove(req.params.itemIdToDelete, function(err, deleteItemConfirmation) {
+          res.redirect('/items');
       })
-  })
-}
+  }
+

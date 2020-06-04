@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const session = require('express-session');
 const passport = require('passport');
+const methodOverride = require('method-override');
 
 require("dotenv").config();
 require("./config/database");
@@ -27,6 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(methodOverride('_method'));
 app.use(session({
   secret: 'SEIRocks!',
   resave: false,
@@ -40,6 +42,7 @@ app.use("/", indexRouter);
 app.use("/", usersRouter);
 app.use("/items", itemsRouter);
 app.use("/trips", tripsRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
