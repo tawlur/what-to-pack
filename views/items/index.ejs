@@ -33,7 +33,7 @@
 
     </tbody>
   </table>
-  cd
+  
   <table>
     <thead>
 
@@ -54,4 +54,24 @@
       <%  }); %>
     </table>
 
+ 
+  
 
+    <table>
+      <thead>
+  
+        <th>Location</th>
+        <th>Date</th>
+        <th>Items</th>
+      </thead>
+        <tbody>
+  
+          <% trips.forEach(function(i) { %>
+            <td><%= i.location %> </td>
+            <td><%= i.date %> </td>
+            
+          </tbody>
+  
+        
+        <%  }); %>
+      </table>

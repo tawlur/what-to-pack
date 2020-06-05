@@ -4,9 +4,27 @@ const Item = require("../models/item");
 module.exports = {
   trip,
   getNewTrip,
-  createTrip
-
+  createTrip,
+  allTrips,
+  newTrip,
+  create
 };
+
+function newTrip(req, res) {
+  res.render('trip/new', {user: req.user})
+}
+
+function create(req, res) {
+  req.body.location = req.user._id;
+  req.body.ownerName = req.user.name;
+  const newTrip = new Trip(req.body);
+  newTrip.save(function(err) {
+      if (err) return res.redirect('/trips/new');
+      console.log(newTrip);
+      res.redirect('/trips');
+  })
+  
+}
 
 function trip(req, res, next) {
   //req.query = ?query=
@@ -25,7 +43,7 @@ function trip(req, res, next) {
     .exec(function (err, items) {
       if (err) return next(err);
       // Passing search values, name & sortKey, for use in the EJS
-      res.render("items/trip", {
+      res.render("items/index", {
         items,
         name: req.query.name,
         sortKey,
@@ -50,4 +68,10 @@ function createTrip(req, res) {
     console.log(newTrip);
     res.redirect('/trips');
   });
+}
+
+function allTrips(req, res) {
+  Trip.find({}, function(err, trips) {
+    res.render('trips/index', {trips: trips})
+  })
 }

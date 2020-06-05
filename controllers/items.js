@@ -1,5 +1,5 @@
 const Item = require('../models/item');
-
+const Trip = require('../models/trip');
 module.exports = {
   new: newItem,
   create,
@@ -27,9 +27,11 @@ function newItem(req, res) {
 }
 
 function index(req, res) {
-  Item.find({}, function(err, items) {
-  res.render('items/index', { title: 'What To Pack', items, user: req.user});
-});
+  Trip.find({}, function(err, trips) {
+      Item.find({}, function (err, items) {
+          res.render('items/index', { title: 'What To Pack', items, user: req.user, trips });
+      });
+  })
 }
 
 // Define deleteOneAuthor (our delete/destroy route)
