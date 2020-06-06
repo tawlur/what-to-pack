@@ -1,3 +1,4 @@
+<%- include('../partials/header') %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,15 +11,14 @@
     
     <a href="/trips/new" >New Trip</i></a>
 
-    <form class="col s12" action="/trips/new" method="POST">
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="dogName" name="name" type="text">
-            <label for="dogName">Trip Name</label>
-            <button class="btn waves-effect waves-light" type="submit">Add
-                <i class="material-icons right"></i>
-              </button>
-          </div>
+    <form action="/trips/new" method="POST">
+            <input id="location" name="location" type="text">
+            <label for="tripName">Trip Name</label>
+            <input type="date" name="date">
+            <button type="submit">Add</button>
+
+        </div>
+    </form>
         </div>
     </div>
     

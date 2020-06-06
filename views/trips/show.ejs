@@ -2,16 +2,39 @@
 <table id="list">
   <thead>
     <tr>
- 
+      <h2><%= trip.location %></h2>
+      <h4><%= trip.date %></h4>
+      <!-- <h4><%= trip.items %> </h4> -->
     </tr>
   </thead>
-  <tbody>
-    <li>
-
-
-    </li>
-
-
-    </tbody>
-  </table>
-  
+  <body>
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Category</th>
+        <th>weight</th>
+      </thead>
+      <tbody>
+        <% trip.items.forEach(function(i) { %>
+        <td><%= i.name %></td>
+        <td><%= i.category %></td>
+        <td><%= i.weight %></td>
+        <% }); %>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Category</th>
+        <th>weight</th>
+      </thead>
+      <tbody>
+        <% inventory.forEach(function(i) { %>
+        <td><%= i.name %></td>
+        <td><%= i.category %></td>
+        <td><%= i.weight %></td>
+        <% }); %>
+      </tbody>
+    </table>
+  </body>
+</table>

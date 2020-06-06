@@ -1,19 +1,19 @@
 <%- include('../partials/header') %>
 <table id="list">
   <thead>
-    <tr>
- 
-    </tr>
+    <tr></tr>
   </thead>
   <tbody>
     <li>
-      Welcome to the Inventory Page. This page is here to help you add items to your inventory. It'll have a form that adds your stuff to an array that you'll pick from within the Trip page.
+      Welcome to the Inventory Page. This page is here to help you add items to
+      your inventory. It'll have a form that adds your stuff to an array that
+      you'll pick from within the Trip page.
     </li>
-    <form id="new-item-form" action="/items" method="POST">
+    <form class="indexForm" id="new-item-form" action="/items" method="POST">
       <label>Name:</label>
-      <input type="text" name="name">
+      <input type="text" name="name" />
       <label>Weight:</label>
-      <input type="number" name="weight">
+      <input type="number" name="weight" />
       <label>Category:</label>
       <select name="category">
         <option value="Tool">Tool</option>
@@ -22,56 +22,49 @@
         <option value="Morale">Morale</option>
       </select>
       <label>In Posession:</label>
-      <input type="checkbox" name="In Posession" checked>
-      <input type="submit" value="Add Item">
+      <input type="checkbox" name="In Posession" checked />
+      <input type="submit" value="Add Item" />
     </form>
     <% items.forEach(function(eachItem) { %>
-    <form id="delete-item-form" action="/items/<%= eachItem._id %>?_method=DELETE" method="POST" style="display:inline;">
-      <input type="submit" value="DELETE">
-  </form>
+    <form
+      id="delete-item-form"
+      action="/items/<%= eachItem._id %>?_method=DELETE"
+      method="POST"
+      style="display: inline;"
+    >
+      <input type="submit" value="DELETE" />
+    </form>
     <% }) %>
+  </tbody>
+</table>
 
-    </tbody>
-  </table>
-  
-  <table>
-    <thead>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>category</th>
+    <th>weight</th>
+  </thead>
+  <tbody>
+    <% items.forEach(function(i) { %>
+    <td><%= i.name %></td>
+    <td><%= i.category %></td>
+    <td><%= i.weight %></td>
+  </tbody>
 
-      <th>Name</th>
-      <th>category</th>
-      <th>weight</th>
-    </thead>
-      <tbody>
+  <% }); %>
+</table>
 
-        <% items.forEach(function(i) { %>
-          <td><%= i.name %> </td>
-          <td><%= i.category %> </td>
-          <td><%= i.weight %> </td>
-          
-        </tbody>
+<table>
+  <thead>
+    <th>Location</th>
+    <th>Date</th>
+    <th>Items</th>
+  </thead>
+  <tbody>
+    <% trips.forEach(function(i) { %>
+    <td><%= i.location %></td>
+    <td><%= i.date %></td>
+  </tbody>
 
-      
-      <%  }); %>
-    </table>
-
- 
-  
-
-    <table>
-      <thead>
-  
-        <th>Location</th>
-        <th>Date</th>
-        <th>Items</th>
-      </thead>
-        <tbody>
-  
-          <% trips.forEach(function(i) { %>
-            <td><%= i.location %> </td>
-            <td><%= i.date %> </td>
-            
-          </tbody>
-  
-        
-        <%  }); %>
-      </table>
+  <% }); %>
+</table>

@@ -3,9 +3,9 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-const session = require('express-session');
-const passport = require('passport');
-const methodOverride = require('method-override');
+const session = require("express-session");
+const passport = require("passport");
+const methodOverride = require("method-override");
 
 require("dotenv").config();
 require("./config/database");
@@ -15,9 +15,9 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const itemsRouter = require("./routes/items");
 const tripsRouter = require("./routes/trips");
+//const showsRouter = require("./routes/show");
 
 const app = express();
-
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -28,21 +28,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use(methodOverride('_method'));
-app.use(session({
-  secret: 'SEIRocks!',
-  resave: false,
-  saveUninitialized: true
-}));
+app.use(methodOverride("_method"));
+app.use(
+  session({
+    secret: "SEIRocks!",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 app.use("/", indexRouter);
 app.use("/", usersRouter);
 app.use("/items", itemsRouter);
 app.use("/trips", tripsRouter);
-
+//app.use("/show", showsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

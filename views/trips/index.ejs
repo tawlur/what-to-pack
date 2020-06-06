@@ -1,33 +1,29 @@
+<!-- <%- include('../partials/header') %> -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <h2>Your Trips</h2>
     <a href="/trips/new">Add New Trip</a>
     <a href="/trips/show">View Trips</a>
 
     <table>
-        <thead>
-    
-          <th>Location</th>
-          <th>Date</th>
-          <th>Items</th>
-        </thead>
-          <tbody>
-    
-            <% trips.forEach(function(i) { %>
-              <td><%= i.location %> </td>
-              <td><%= i.date %> </td>
-              
-            </tbody>
-    
-          
-          <%  }); %>
-        </table>
-
-</body>
+      <thead>
+        <th>Location</th>
+        <th>Date</th>
+        <th>Items</th>
+      </thead>
+      <tbody>
+        <% trips.forEach(function(i) { %>
+        <td><a href="/trips/<%= i._id %>"> <%= i.location %> </a></td>
+        <td><%= i.date %></td>
+      </tbody>
+      <% }); %>
+    </table>
+  </body>
 </html>

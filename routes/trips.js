@@ -1,27 +1,24 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const tripsCtrl = require('../controllers/trips');
-
+const tripsCtrl = require("../controllers/trips");
 
 /* GET home page. */
 // router.get('/', isLoggedIn, tripsCtrl.index);
-router.get('/new', isLoggedIn, tripsCtrl.getNewTrip);
+router.get("/new", isLoggedIn, tripsCtrl.getNewTrip);
 
-router.post('/', isLoggedIn, tripsCtrl.createTrip);
-router.get('/', isLoggedIn, tripsCtrl.allTrips);
-router.get('/new', isLoggedIn, tripsCtrl.newTrip);
-router.post('/add', isLoggedIn, tripsCtrl.create);
-router.post('/show', isLoggedIn, tripsCtrl.create);
-
+router.post("/", isLoggedIn, tripsCtrl.create);
+router.get("/", isLoggedIn, tripsCtrl.allTrips);
+router.get("/new", isLoggedIn, tripsCtrl.newTrip);
+router.post("/new", isLoggedIn, tripsCtrl.create);
+router.get("/:id", isLoggedIn, tripsCtrl.showTrip);
+//router.post('/show', isLoggedIn, showsCtrl.create);
 
 function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated() ) {
-        return next();
-    } else {
-        res.redirect('/auth/google');
-    }
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    res.redirect("/auth/google");
+  }
 }
 
-
 module.exports = router;
-

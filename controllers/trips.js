@@ -4,26 +4,40 @@ const Item = require("../models/item");
 module.exports = {
   trip,
   getNewTrip,
-  createTrip,
+  // createTrip,
   allTrips,
   newTrip,
-  create
+  create,
+  showTrip,
 };
 
+function showTrip(req, res) {
+  Item.find({}, function (err, inventory) {
+    Trip.findById(req.params.id)
+      .populate("item")
+      .exec(function (err, trip) {
+        res.render("trips/show", {
+          trip: trip,
+          user: req.user,
+          title: "What To Pack",
+          inventory,
+        });
+      });
+  });
+}
+
 function newTrip(req, res) {
-  res.render('trip/new', {user: req.user})
+  res.render("trip/new", { user: req.user });
 }
 
 function create(req, res) {
-  req.body.location = req.user._id;
-  req.body.ownerName = req.user.name;
   const newTrip = new Trip(req.body);
-  newTrip.save(function(err) {
-      if (err) return res.redirect('/trips/new');
-      console.log(newTrip);
-      res.redirect('/trips');
-  })
-  
+  newTrip.user = req.user._id;
+  newTrip.save(function (err) {
+    if (err) return res.redirect("/trips/new");
+    console.log(newTrip);
+    res.redirect("/trips");
+  });
 }
 
 function trip(req, res, next) {
@@ -54,24 +68,24 @@ function trip(req, res, next) {
 
 function getNewTrip(req, res) {
   Item.find({}, function (err, items) {
-    res.render('trips/new', {
-      title: 'Add Trip',
-      items
+    res.render("trips/new", {
+      title: "Add Trip",
+      items,
     });
-  })
-} 
-
-function createTrip(req, res) {
-  req.body.user = req.user;
-  Trip.create(req.body, function (err, newTrip) {
-    console.log(err);
-    console.log(newTrip);
-    res.redirect('/trips');
   });
 }
 
+// function create(req, res) {
+//   req.body.user = req.user;
+//   Trip.create(req.body, function (err, newTrip) {
+//     console.log(err);
+//     console.log(newTrip);
+//     res.redirect('/trips');
+//   });
+// }
+
 function allTrips(req, res) {
-  Trip.find({}, function(err, trips) {
-    res.render('trips/index', {trips: trips})
-  })
+  Trip.find({}, function (err, trips) {
+    res.render("trips/index", { trips: trips });
+  });
 }
