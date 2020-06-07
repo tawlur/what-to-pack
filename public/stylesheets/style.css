@@ -1,22 +1,31 @@
 
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  font-family: 'Amatic SC', cursive;
-  font-size: 60px;
 
+.siteNameHeader {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 47px;
 }
 
+.logInlogOut {
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+}
 
 body {
-  padding: 50px;
-  font-family: 'Amatic SC', cursive;}
-
-a {
-  color: #00b7ff;
+  font-family: 'Amatic SC', cursive;
+  color: white;
+  background: #012D09;
+  margin: 25px;
 }
 
-/* .indexForm {
-  display: grid;
-} */
+a {
+  color:white;
+}
+
+.mainIndexNav {
+  display: flex;
+  justify-content: space-evenly;
+  color:white;
+}
