@@ -7,24 +7,27 @@
       <h4><%= trip.date %></h4>
     </tr>
   </thead>
-    <table>
-      <thead>
-        <tr>
-          <td>Name</td>
-          <td>Category</td>
-          <td>weight</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <% trip.items.forEach(function(i) { %>
-            <td><%= i.name %></td>
-            <td><%= i.category %></td>
-            <td><%= i.weight %></td>
-            <% }); %>
-          </tr>
-      </tbody>
-    </table>
+<h4>Trip Items</h4>
+<table>
+  <thead>
+    <tr>
+    <th>Name</th>
+    <th>Category</th>
+    <th>weight</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+    <% trip.items.forEach(function(i) { %>
+      <tr>
+    <td><%= i.name %></td>
+    <td><%= i.category %></td>
+    <td><%= i.weight %></td>
+    <td><a href="/trips/<%= trip._id %>/items/<%= i._id %>/remove">Remove Item From Trip</a></td>
+  </tr>
+    <% }); %>
+  </tbody>
+</table>
     <table>
       <thead>
         <tr>  
@@ -49,11 +52,5 @@
   </body>
 </table>
 
-<h4>Trip Items</h4>
-<ul>
-  <% trip.items.forEach(function(i) { %>
-    <li><%= i.name %></li>
-  <% }) %>
-</ul>
 
 <%- include('../partials/footer'); %>

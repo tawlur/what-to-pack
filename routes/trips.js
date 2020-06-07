@@ -12,6 +12,8 @@ router.get("/new", isLoggedIn, tripsCtrl.newTrip);
 router.post("/new", isLoggedIn, tripsCtrl.create);
 router.get("/:id", isLoggedIn, tripsCtrl.showTrip);
 router.get('/:tripId/items/:itemId', tripsCtrl.addItemToTrip)
+router.get('/:tripId/items/:itemId/remove', tripsCtrl.removeItemFromTrip)
+
 //router.post('/show', isLoggedIn, showsCtrl.create);
 
 function isLoggedIn(req, res, next) {

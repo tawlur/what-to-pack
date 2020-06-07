@@ -10,7 +10,15 @@ module.exports = {
   create,
   showTrip,
   addItemToTrip,
+  removeItemFromTrip
 };
+
+function removeItemFromTrip(req, res) {
+  Trip.update({_id: req.params.tripId}, {$pull: {items: req.params.itemId}},
+    function(err, trip) {
+      res.redirect(`/trips/${req.params.tripId}`);
+    })
+}
 
 function showTrip(req, res) {
   Trip.findById(req.params.id)
