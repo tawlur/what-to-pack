@@ -9,13 +9,14 @@ module.exports = {
   newTrip,
   create,
   showTrip,
+  addItemToTrip,
 };
 
 function showTrip(req, res) {
-  Item.find({}, function (err, inventory) {
-    Trip.findById(req.params.id)
-      .populate("item")
-      .exec(function (err, trip) {
+  Trip.findById(req.params.id)
+  .populate("items")
+  .exec(function (err, trip) {
+    Item.find({user: req.user, _id: {$nin: trip.items}}, function (err, inventory) {
         res.render("trips/show", {
           trip: trip,
           user: req.user,
@@ -24,6 +25,15 @@ function showTrip(req, res) {
         });
       });
   });
+}
+
+function addItemToTrip(req, res) {
+  Trip.findById(req.params.tripId, function(err, trip) {
+    trip.items.push(req.params.itemId);
+    trip.save(function(err) {
+      res.redirect(`/trips/${req.params.tripId}`);
+    })
+  })
 }
 
 function newTrip(req, res) {

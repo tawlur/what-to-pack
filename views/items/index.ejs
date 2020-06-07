@@ -1,5 +1,6 @@
 <%- include('../partials/header') %>
 
+
 <table id="list">
 
   <tbody>
@@ -30,45 +31,24 @@
 
 <table>
   <thead>
-    <th class="inventoryTable">Name</th>
-    <th class="inventoryTable">category</th>
-    <th class="inventoryTable">weight</th>
-    <th class="inventoryTable">delete</th>
+    <tr>
+      <th class="inventoryTable">Name</th>
+      <th class="inventoryTable">category</th>
+      <th class="inventoryTable">weight</th>
+      <th class="inventoryTable">delete</th>
+    </tr>
   </thead>
   <tbody>
+    
     <% items.forEach(function(i) { %>
-    <td class="inventoryTable"><%= i.name %></td>
-    <td class="inventoryTable"><%= i.category %></td>
-    <td class="inventoryTable"><%= i.weight %></td>
-    
-    <% }); %>
-    
+      <tr>
+        <td class="inventoryTable"><%= i.name %></td>
+        <td class="inventoryTable"><%= i.category %></td>
+        <td class="inventoryTable"><%= i.weight %></td>
+      </tr>     
+        <% }); %>  
   </tbody>
 
 </table>
 
-
-
-<table>
-  <thead class="tripTable">
-    <th>Location</th>
-    <th>Date</th>
-    <th>Items</th>
-
-  </thead>
-
-  <tbody class="tripTable">
-    <% trips.forEach(function(i) { %>
-    <td><%= i.location %></td>
-    <td><%= i.date %></td>
-  </tbody>
-
-  <% }); %>
-</table>
-
-
-<% items.forEach(function(eachItem) { %>
-  <form id="delete-item-form" action="/items/<%= eachItem._id %>?_method=DELETE" method="POST" style="display: inline;">
-    <input type="submit" value="DELETE" />
-  </form>
-  <% }) %>
+<%- include('../partials/footer'); %>

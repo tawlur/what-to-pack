@@ -1,4 +1,5 @@
 <%- include('../partials/header') %>
+<body>
 <table id="list">
   <thead>
     <tr>
@@ -6,34 +7,53 @@
       <h4><%= trip.date %></h4>
     </tr>
   </thead>
-  <body>
     <table>
       <thead>
-        <th>Name</th>
-        <th>Category</th>
-        <th>weight</th>
+        <tr>
+          <td>Name</td>
+          <td>Category</td>
+          <td>weight</td>
+        </tr>
       </thead>
       <tbody>
-        <% trip.items.forEach(function(i) { %>
-        <td><%= i.name %></td>
-        <td><%= i.category %></td>
-        <td><%= i.weight %></td>
-        <% }); %>
+        <tr>
+          <% trip.items.forEach(function(i) { %>
+            <td><%= i.name %></td>
+            <td><%= i.category %></td>
+            <td><%= i.weight %></td>
+            <% }); %>
+          </tr>
       </tbody>
     </table>
     <table>
       <thead>
-        <th>Name</th>
-        <th>Category</th>
-        <th>weight</th>
+        <tr>  
+          <td>Name</td>
+          <td>Category</td>
+          <td>weight</td>
+        </tr>
       </thead>
+
       <tbody>
-        <% inventory.forEach(function(i) { %>
-        <td><%= i.name %></td>
-        <td><%= i.category %></td>
-        <td><%= i.weight %></td>
-        <% }); %>
+        <tr>
+
+          <% inventory.forEach(function(i) { %>
+            <td><%= i.name %></td>
+            <td><%= i.category %></td>
+            <td><%= i.weight %></td>
+            <td><a href="/trips/<%= trip._id %>/items/<%= i._id %>">Add Item to Trip</a></td>
+            <% }); %>
+          </tr>
       </tbody>
     </table>
   </body>
 </table>
+
+<h4>Trip Items</h4>
+<ul>
+  <% trip.items.forEach(function(i) { %>
+    <li><%= i.name %></li>
+  <% }) %>
+</ul>
+
+<%- include('../partials/footer'); %>
