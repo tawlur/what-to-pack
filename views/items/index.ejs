@@ -1,13 +1,10 @@
 <%- include('../partials/header') %>
+
 <table id="list">
-  <thead>
-    <tr></tr>
-  </thead>
+
   <tbody>
     <li>
-      Welcome to the Inventory Page. This page is here to help you add items to
-      your inventory. It'll have a form that adds your stuff to an array that
-      you'll pick from within the Trip page.
+      Welcome to the Inventory Page. 
     </li>
     <form class="indexForm" id="new-item-form" action="/items" method="POST">
       <label>Name:</label>
@@ -16,51 +13,51 @@
       <input type="number" name="weight" />
       <label>Category:</label>
       <select name="category">
-        <option value="Tool">Tool</option>
-        <option value="Consumable">Consumable</option>
-        <option value="Clothing">Clothing</option>
-        <option value="Morale">Morale</option>
+        <option value="campGear">Camp Gear</option>
+        <option value="tool">Tool</option>
+        <option value="consumable">Consumable</option>
+        <option value="personalItem">Personal Items</option>
+        <option value="morale">Morale</option>
+
       </select>
       <label>In Posession:</label>
       <input type="checkbox" name="In Posession" checked />
       <input type="submit" value="Add Item" />
     </form>
-    <% items.forEach(function(eachItem) { %>
-    <form
-      id="delete-item-form"
-      action="/items/<%= eachItem._id %>?_method=DELETE"
-      method="POST"
-      style="display: inline;"
-    >
-      <input type="submit" value="DELETE" />
-    </form>
-    <% }) %>
+
   </tbody>
 </table>
 
 <table>
   <thead>
-    <th>Name</th>
-    <th>category</th>
-    <th>weight</th>
+    <th class="inventoryTable">Name</th>
+    <th class="inventoryTable">category</th>
+    <th class="inventoryTable">weight</th>
+    <th class="inventoryTable">delete</th>
   </thead>
   <tbody>
     <% items.forEach(function(i) { %>
-    <td><%= i.name %></td>
-    <td><%= i.category %></td>
-    <td><%= i.weight %></td>
+    <td class="inventoryTable"><%= i.name %></td>
+    <td class="inventoryTable"><%= i.category %></td>
+    <td class="inventoryTable"><%= i.weight %></td>
+    
+    <% }); %>
+    
   </tbody>
 
-  <% }); %>
 </table>
 
+
+
 <table>
-  <thead>
+  <thead class="tripTable">
     <th>Location</th>
     <th>Date</th>
     <th>Items</th>
+
   </thead>
-  <tbody>
+
+  <tbody class="tripTable">
     <% trips.forEach(function(i) { %>
     <td><%= i.location %></td>
     <td><%= i.date %></td>
@@ -68,3 +65,10 @@
 
   <% }); %>
 </table>
+
+
+<% items.forEach(function(eachItem) { %>
+  <form id="delete-item-form" action="/items/<%= eachItem._id %>?_method=DELETE" method="POST" style="display: inline;">
+    <input type="submit" value="DELETE" />
+  </form>
+  <% }) %>
