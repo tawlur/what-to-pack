@@ -32,9 +32,9 @@ What To Pack is an easy to use app for planning a backpacking trip. The app help
 
 ## Next Steps 
 
-- Top priority would be better site navigation.
+- High priority item: Improved site navigation.
 - Setup a weight funciton to add up the total weight of all gear. 
 - Setup calculation for max carry weight based on user height and weight.
 - Create nav buttons to make moving through the site easier.
-- buy more camp gear 
+- Buy more camp gear 
 - Go on a trip
