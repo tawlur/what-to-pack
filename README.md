@@ -1,6 +1,6 @@
 # What To Pack
 
-What To Pack is an easy to usee app for planning a backpacking trip. The app helps you easily access your inventory of camping supplies to trips that you create within the app. 
+What To Pack is an easy to use app for planning a backpacking trip. The app helps you easily access your inventory of camping supplies to trips that you create within the app. 
 
 
 ## Screenshots
@@ -28,7 +28,7 @@ What To Pack is an easy to usee app for planning a backpacking trip. The app hel
 
 [What To Pack!](https://what-to-pack.herokuapp.com/)
 
-[Trello planning board](https://what-to-pack.herokuapp.com/)
+[Trello planning board](https://trello.com/b/WAAnKMFQ)
 
 ## Next Steps 
 
