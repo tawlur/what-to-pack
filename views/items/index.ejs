@@ -1,54 +1,47 @@
 <%- include('../partials/header') %>
 
 
-<table id="list">
 
-  <tbody>
-    <li>
+    <div>
       Welcome to the Inventory Page. 
-    </li>
-    <form class="indexForm" id="new-item-form" action="/items" method="POST">
-      <label>Name:</label>
-      <input type="text" name="name" />
-      <label>Weight:</label>
-      <input type="number" name="weight" />
-      <label>Category:</label>
-      <select name="category">
-        <option value="campGear">Camp Gear</option>
-        <option value="tool">Tool</option>
-        <option value="consumable">Consumable</option>
-        <option value="personalItem">Personal Items</option>
-        <option value="morale">Morale</option>
-
-      </select>
-      <label>In Posession:</label>
-      <input type="checkbox" name="In Posession" checked />
-      <input type="submit" value="Add Item" />
-    </form>
-
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th class="inventoryTable">Name</th>
-      <th class="inventoryTable">category</th>
-      <th class="inventoryTable">weight</th>
-      <th class="inventoryTable">delete</th>
-    </tr>
-  </thead>
-  <tbody>
+    </div>
     
-    <% items.forEach(function(i) { %>
-      <tr>
-        <td class="inventoryTable"><%= i.name %></td>
-        <td class="inventoryTable"><%= i.category %></td>
-        <td class="inventoryTable"><%= i.weight %></td>
-      </tr>     
+    <table class="itemTable">
+      
+      <tr rowspan="4">
+        <th>Name</th>
+        <th>category</th>
+      </tr>
+      
+      
+      
+      <% items.forEach(function(i) { %>
+        <tr>
+          <td><%= i.name %></td>
+          <td><%= i.category %></td>
+        </tr>     
+        
         <% }); %>  
-  </tbody>
+      </table>
+      
+      
+      
+          <form class="indexForm" id="new-item-form" action="/items" method="POST">
+            <label>Name:</label>
+            <input type="text" name="name" />
+            <label>Weight:</label>
+            <input type="number" name="weight" />
+            <label>Category:</label>
+            <select name="category">
+              <option value="campGear">Camp Gear</option>
+              <option value="tool">Tool</option>
+              <option value="consumable">Consumable</option>
+              <option value="personalItem">Personal Items</option>
+              <option value="morale">Morale</option>
+            </select>
+      
 
-</table>
+            <input type="submit" value="Add Item" />
+          </form>
 
 <%- include('../partials/footer'); %>

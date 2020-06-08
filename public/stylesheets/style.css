@@ -1,19 +1,26 @@
 
 
 
-.siteNameHeader {
+.navHead {
   display: flex;
-  justify-content: flex-start;
-  font-size: 47px;
+  justify-content: space-between;
+  flex-grow: 4;
 }
 
-.logInlogOut {
+#wtpTitle {
+  font-size: 55px;
+}
+
+.mainContent {
   display: flex;
-  justify-content: flex-end;
-  color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 1.6;
 }
 
 body {
+ 
   font-family: 'Amatic SC', cursive;
   color: white;
   background: #012D09;
@@ -22,21 +29,17 @@ body {
 }
 
 a {
-  color:white;
+  color: yellow;
 }
 
-.mainIndexNav {
+.itemTable {
   display: flex;
-  justify-content: space-evenly;
-  color:white;
-}
-
-.tripTable {
+  justify-content: space-around;
   text-align: center;
-  color:white;
 }
 
-.inventoryTable {
-  color:white;
-  justify-items: flex-start;
+
+.tentPic {
+  justify-content: end;
 }
+
