@@ -1,24 +1,25 @@
 
 <%- include('../partials/header') %>
+<h2>Your Trips</h2>
 
+<div>
+  <a href="/trips/new">Add New Trip</a>
+</div>
   
-    <h2>Your Trips</h2>
-    <a href="/trips/new">Add New Trip</a>
-    <a href="/trips/show">View Trips</a>
-
+<div class="mainContent">
     <table>
-      <thead>
+      <thead class="itemTable">
         <th>Location</th>
-        <th>Date</th>
-        <th>Items</th>
+        
       </thead>
       <tbody>
         <% trips.forEach(function(i) { %>
-        <td><a href="/trips/<%= i._id %>"> <%= i.location %> </a></td>
-        <td><%= i.date %></td>
-      </tbody>
-      <% }); %>
-    </table>
-
+          <td><a href="/trips/<%= i._id %>"> <%= i.location %> </a></td>
+          
+        </tbody>
+        <% }); %>
+      </table>
+      
+    </div>
     
     <%- include('../partials/footer'); %>

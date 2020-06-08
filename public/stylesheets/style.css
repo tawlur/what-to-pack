@@ -34,12 +34,41 @@ a {
 
 .itemTable {
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-between;
   text-align: center;
 }
 
-
-.tentPic {
-  justify-content: end;
+.pageTitle {
+  padding: 15px;
 }
 
+.itemInputForm {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  margin: 65px;
+}
+
+.tentPic {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: 70px;
+  background-color: tomato;
+  position: relative;
+  min-height: 10vh;
+
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;  
+}
+
+.tripTableHead {
+  font-size: 36px;
+  color: tomato;
+}

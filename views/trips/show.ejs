@@ -1,54 +1,61 @@
 <%- include('../partials/header') %>
-<table>
-  <thead>
-    <tr>
-      <h2><%= trip.location %></h2>
-      <h4><%= trip.date %></h4>
-    </tr>
-  </thead>
-<h4>Trip Items</h4>
-<table>
-  <thead>
-    <tr>
-    <th>Name</th>
-    <th>Category</th>
-    <th>weight</th>
-    <th></th>
-  </tr>
-  </thead>
-  <tbody>
-    <% trip.items.forEach(function(i) { %>
+
+<section>
+  
+  <table class="tripTableHead">
+    <thead>
       <tr>
-    <td><%= i.name %></td>
-    <td><%= i.category %></td>
-    <td><%= i.weight %></td>
-    <td><a href="/trips/<%= trip._id %>/items/<%= i._id %>/remove">Remove Item From Trip</a></td>
-  </tr>
-    <% }); %>
-  </tbody>
-</table>
+        <td><%= trip.location %></td>
+      </tr>
+    </thead>
+    
+      <!-- <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th></th>
+          </tr>
+        </thead>
+      </table>
+    -->
+    <table>
+      <tr>
+        <% trip.items.forEach(function(i) { %>
+          <td><%= i.name %></td>
+          <td><%= i.category %></td>
+          <td>
+            <a href="/trips/<%= trip._id %>/items/<%= i._id %>/remove">Remove</a>
+          </td>
+        </tr>
+        <% }); %>
+      </table>
+    </table>
+    
     <table>
       <thead>
-        <tr>  
-          <td>Name</td>
-          <td>Category</td>
-          <td>weight</td>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
         </tr>
       </thead>
-
+      
       <tbody>
+        
         <tr>
-
           <% inventory.forEach(function(i) { %>
             <td><%= i.name %></td>
             <td><%= i.category %></td>
-            <td><%= i.weight %></td>
-            <td><a href="/trips/<%= trip._id %>/items/<%= i._id %>">Add Item to Trip</a></td>
+            <td>
+              <a href="/trips/<%= trip._id %>/items/<%= i._id %>">Add</a>
+            </td>
+            
             <% }); %>
           </tr>
-      </tbody>
+        </tbody>
+      </table>
+      
+      <%- include('../partials/footer'); %>
     </table>
-</table>
-
-
-<%- include('../partials/footer'); %>
+  </section>
+  
