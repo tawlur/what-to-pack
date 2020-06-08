@@ -58,7 +58,7 @@ a {
   background-color: tomato;
   position: relative;
   min-height: 10vh;
-
+  padding-right: 33px;
 }
 
 .bottom {

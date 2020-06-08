@@ -1,13 +1,17 @@
 # What To Pack
 
-Description Its the best. That is. That is all.
+What To Pack is an easy to usee app for planning a backpacking trip. The app helps you easily access your inventory of camping supplies to trips that you create within the app. 
 
 
 ## Screenshots
 
-<img src="" alt="Mongoose Flights">
+<img src="https://i.imgur.com/kgnSZAZ.png" alt="What to pack">
 
-![What To Pack](https://i.imgur.com/PEFSVVe.png)
+<img src="https://i.imgur.com/21ns3J5.png" alt="What to pack">
+
+
+
+
 
 ## Technologies Used
 
@@ -20,11 +24,16 @@ Description Its the best. That is. That is all.
 
 ## Getting Started
 
-[deployed link] (https://)
-[trello planning board] (https:// trellos)
+
+
+[What To Pack!](https://what-to-pack.herokuapp.com/)
+
+[Trello planning board](https://what-to-pack.herokuapp.com/)
 
 ## Next Steps 
 
-- Undermine american airlines created a need for an app that nobody knows they need yet
-- Add a button
+- Setup a weight funciton to add up the total weight of all gear. 
+- Setup calculation for max carry weight based on user height and weight.
+- Create nav buttons to make moving through the site easier.
 - buy more camp gear 
+- Go on a trip
