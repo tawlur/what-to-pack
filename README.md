@@ -1,6 +1,6 @@
 # What To Pack
 
-What To Pack is an easy to use app for planning a backpacking trip. The app helps you easily access your inventory of camping supplies to trips that you create within the app. 
+What To Pack is an easy to use app for planning a backpacking trip. The app helps you easily access your inventory of camping supplies, and add those supplies to trips that you create within the app. One of the joys of a multi day backpacking trip is the planning process. This app will help you stay organized as you prepare.
 
 
 ## Screenshots
@@ -32,6 +32,7 @@ What To Pack is an easy to use app for planning a backpacking trip. The app help
 
 ## Next Steps 
 
+- Top priority would be better site navigation.
 - Setup a weight funciton to add up the total weight of all gear. 
 - Setup calculation for max carry weight based on user height and weight.
 - Create nav buttons to make moving through the site easier.

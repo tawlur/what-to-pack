@@ -60,7 +60,6 @@ function create(req, res) {
 function trip(req, res, next) {
   //req.query = ?query=
   console.log(req.query);
-  // Make the query object to use with Student.find based up
   // the user has submitted the search form or now
   // www.url.com/?name=  (questions signals theres a query then name of query then value comes after the =)
   let modelQuery = req.query.name

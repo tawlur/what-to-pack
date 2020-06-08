@@ -72,3 +72,16 @@ a {
   font-size: 36px;
   color: tomato;
 }
+
+.tableSpace {
+  width: 50px;
+}
+
+th {
+  color: tomato;
+  font-size: 24px;
+}
+
+.newTripTitle {
+  color: tomato;
+}

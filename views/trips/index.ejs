@@ -1,5 +1,6 @@
 
 <%- include('../partials/header') %>
+
 <h2>Your Trips</h2>
 
 <div>
@@ -10,16 +11,15 @@
     <table>
       <thead class="itemTable">
         <th>Location</th>
-        
       </thead>
+
       <tbody>
         <% trips.forEach(function(i) { %>
           <td><a href="/trips/<%= i._id %>"> <%= i.location %> </a></td>
-          
-        </tbody>
+      </tbody>
         <% }); %>
-      </table>
+    </table>
       
-    </div>
+</div>
     
-    <%- include('../partials/footer'); %>
+<%- include('../partials/footer'); %>

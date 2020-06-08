@@ -1,27 +1,13 @@
 <%- include('../partials/header') %>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add A Trip</title>
-</head>
 <body>
-    
-    <a href="/trips/new" >New Trip</i></a>
-
+    <h2 class="newTripTitle">Add a new trip here</h2>
     <form action="/trips/new" method="POST">
             <input id="location" name="location" type="text">
             <label for="tripName">Trip Name</label>
             <input type="date" name="date">
             <button type="submit">Add</button>
-
-        </div>
     </form>
-        </div>
-    </div>
-    
 
-    <%- include('../partials/footer'); %>
+<%- include('../partials/footer'); %>
 

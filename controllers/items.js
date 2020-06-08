@@ -38,7 +38,6 @@ function index(req, res) {
   });
 }
 
-// Define deleteOneAuthor (our delete/destroy route)
 function deleteOneItem(req, res) {
   Item.findByIdAndRemove(req.params.itemIdToDelete, function (
     err,

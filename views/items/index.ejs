@@ -1,37 +1,29 @@
 <%- include('../partials/header') %>
 
-
-
 <div class="pageTitle">
   Welcome to the Inventory Page. 
 </div>
 
 <div class="mainContent">
   <table class="itemTable">
-
-      <tr>
+      <tr> 
         <th>Name</th>
+        <td class="tableSpace"></td>
         <th>category</th>
       </tr>
       
-    
-    
     <% items.forEach(function(i) { %>
       <tr>
         <td><%= i.name %></td>
-        <div></div>
+        <td class="tableSpace"></td>
         <td><%= i.category %></td>
-      </tr>     
-      
+      </tr>          
       <% }); %>  
     </table>
   </div>
     
     <div class="mainContent">
-
       <div class="itemInputForm">
-        
-        
         <form class="indexForm" id="new-item-form" action="/items" method="POST">
           <label>Name:</label>
           <input type="text" name="name" />
@@ -43,11 +35,9 @@
             <option value="personalItem">Personal Items</option>
             <option value="morale">Morale</option>
           </select>
-          
-          
           <input type="submit" value="Add Item" />
         </form>
       </div>
     </div>
       
-      <%- include('../partials/footer'); %>
+<%- include('../partials/footer'); %>

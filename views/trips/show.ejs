@@ -9,19 +9,9 @@
       </tr>
     </thead>
     
-      <!-- <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Category</th>
-            <th></th>
-          </tr>
-        </thead>
-      </table>
-    -->
     <table>
+      <% trip.items.forEach(function(i) { %>
       <tr>
-        <% trip.items.forEach(function(i) { %>
           <td><%= i.name %></td>
           <td><%= i.category %></td>
           <td>
@@ -35,27 +25,25 @@
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Category</th>
+          <th>Items you can add</th>
+          <th>to your trip</th>
         </tr>
       </thead>
       
-      <tbody>
-        
+      <tbody>  
+        <% inventory.forEach(function(i) { %>
         <tr>
-          <% inventory.forEach(function(i) { %>
             <td><%= i.name %></td>
             <td><%= i.category %></td>
             <td>
               <a href="/trips/<%= trip._id %>/items/<%= i._id %>">Add</a>
             </td>
-            
-            <% }); %>
           </tr>
+            <% }); %>
         </tbody>
       </table>
       
-      <%- include('../partials/footer'); %>
     </table>
   </section>
   
+  <%- include('../partials/footer'); %>
