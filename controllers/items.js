@@ -27,7 +27,7 @@ function newItem(req, res) {
 
 function index(req, res) {
   Trip.find({}, function (err, trips) {
-    Item.find({user: req.user}, function (err, items) {
+    Item.find({ user: req.user }, function (err, items) {
       res.render("items/index", {
         title: "What To Pack",
         items,

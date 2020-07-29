@@ -10,8 +10,8 @@ router.get("/", isLoggedIn, tripsCtrl.allTrips);
 router.get("/new", isLoggedIn, tripsCtrl.newTrip);
 router.post("/new", isLoggedIn, tripsCtrl.create);
 router.get("/:id", isLoggedIn, tripsCtrl.showTrip);
-router.get('/:tripId/items/:itemId', tripsCtrl.addItemToTrip)
-router.get('/:tripId/items/:itemId/remove', tripsCtrl.removeItemFromTrip)
+router.get("/:tripId/items/:itemId", tripsCtrl.addItemToTrip);
+router.get("/:tripId/items/:itemId/remove", tripsCtrl.removeItemFromTrip);
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {

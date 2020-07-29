@@ -9,21 +9,27 @@ module.exports = {
   create,
   showTrip,
   addItemToTrip,
-  removeItemFromTrip
+  removeItemFromTrip,
 };
 
 function removeItemFromTrip(req, res) {
-  Trip.update({_id: req.params.tripId}, {$pull: {items: req.params.itemId}},
-    function(err, trip) {
+  Trip.update(
+    { _id: req.params.tripId },
+    { $pull: { items: req.params.itemId } },
+    function (err, trip) {
       res.redirect(`/trips/${req.params.tripId}`);
-    })
+    }
+  );
 }
 
 function showTrip(req, res) {
   Trip.findById(req.params.id)
-  .populate("items")
-  .exec(function (err, trip) {
-    Item.find({user: req.user, _id: {$nin: trip.items}}, function (err, inventory) {
+    .populate("items")
+    .exec(function (err, trip) {
+      Item.find({ user: req.user, _id: { $nin: trip.items } }, function (
+        err,
+        inventory
+      ) {
         res.render("trips/show", {
           trip: trip,
           user: req.user,
@@ -31,16 +37,16 @@ function showTrip(req, res) {
           inventory,
         });
       });
-  });
+    });
 }
 
 function addItemToTrip(req, res) {
-  Trip.findById(req.params.tripId, function(err, trip) {
+  Trip.findById(req.params.tripId, function (err, trip) {
     trip.items.push(req.params.itemId);
-    trip.save(function(err) {
+    trip.save(function (err) {
       res.redirect(`/trips/${req.params.tripId}`);
-    })
-  })
+    });
+  });
 }
 
 function newTrip(req, res) {
